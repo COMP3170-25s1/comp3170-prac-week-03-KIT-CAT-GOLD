@@ -5,6 +5,9 @@ in vec3 a_colour; // vertex colour RGB
 
 out vec3 v_colour; // to fragment shader
 
+
+//uniform 
+
 void main() {
 	v_colour = a_colour;
 

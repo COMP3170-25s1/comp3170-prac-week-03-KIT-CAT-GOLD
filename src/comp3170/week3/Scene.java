@@ -92,6 +92,8 @@ public class Scene {
 		
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 		glDrawElements(GL_TRIANGLES, indices.length, GL_UNSIGNED_INT, 0);
+		
+		//shader.SetUniform("u_modelMatrix", modelMatrix); 
 
 	}
 
@@ -133,8 +135,9 @@ public class Scene {
 	 */
 
 	public static Matrix4f rotationMatrix(float angle, Matrix4f dest) {
-
 		// TODO: Your code here
+		dest.rotateY(angle);
+		dest.rotateX(angle);
 
 		return dest;
 	}
@@ -152,8 +155,17 @@ public class Scene {
 	public static Matrix4f scaleMatrix(float sx, float sy, Matrix4f dest) {
 
 		// TODO: Your code here
+		// off-diagonals are 0 
+		dest.scale(sy); 
+		dest.scale(sx);
+
 
 		return dest;
+	}
+	
+	public void init() {
+		//modelMatrix = new Matrix3f(); 
+		
 	}
 
 }
